@@ -47,7 +47,7 @@ $notices = @{
 }
 foreach ($entry in $notices.GetEnumerator()) { Invoke-WebRequest -Uri $entry.Value -OutFile (Join-Path $licenses $entry.Key) }
 Copy-Item -LiteralPath (Join-Path $root 'LICENSE'),(Join-Path $root 'THIRD-PARTY-NOTICES.txt'),(Join-Path $root 'README.md') -Destination $out -Force
-$zip = Join-Path ([IO.Path]::GetDirectoryName($out)) 'Vidl-0.1.0-windows-x64.zip'
+$zip = Join-Path ([IO.Path]::GetDirectoryName($out)) 'Vidl-0.1.1-windows-x64.zip'
 Compress-Archive -LiteralPath $out -DestinationPath $zip -CompressionLevel Optimal -Force
 Write-Output "Portable app: $out"
 Write-Output "Download archive: $zip"

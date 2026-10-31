@@ -1,4 +1,4 @@
-VIDL 0.1.0 — THIRD-PARTY SOFTWARE
+VIDL 0.1.1 — THIRD-PARTY SOFTWARE
 
 Vidl's own source is MIT licensed. The portable distribution includes separate,
 unmodified tools and the Microsoft .NET desktop runtime under their own licenses.

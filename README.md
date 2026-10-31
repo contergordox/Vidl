@@ -4,14 +4,16 @@ A small Windows app for saving YouTube video and audio to your computer.
 
 ## Download and run
 
-1. Extract the entire `Vidl-0.1.0-windows-x64.zip` archive.
-2. Open the `Vidl` folder and run `Vidl.exe`.
+1. [Download Vidl.exe](https://github.com/contergordox/Vidl/releases/latest/download/Vidl.exe).
+2. Run it. The included app and tools are prepared automatically on first launch.
 3. Paste a public YouTube video, Shorts, or music link.
 4. Choose MP4 video, MP3 audio, or M4A audio and click **Add to queue**.
 
-Windows 10/11 x64. No Python, Node, FFmpeg, .NET installation, account,
-or administrator privileges are required. Keep the `tools` and `licenses`
-folders beside `Vidl.exe`; this is a portable app, not an installer.
+Windows 10/11 x64. Only the downloaded EXE is needed. No separate Python, Node,
+FFmpeg, SDK, account, or administrator installation is required. The launcher
+uses Windows' built-in .NET Framework; the desktop app includes .NET 10.
+App files are unpacked to `%LOCALAPPDATA%\Vidl\bundles`, and later launches reuse
+that cache. There are no companion files to keep beside the downloaded EXE.
 This build is unsigned.
 
 ## Included
@@ -46,6 +48,8 @@ Install the .NET 10 SDK on Windows x64, then run:
 
 The script verifies tool checksums, runs the tests, and builds the portable app
 in `dist/Vidl`. The download ZIP is written to `dist`.
+For the single-file build, run `.\standalone\build.ps1` afterward. See
+[the standalone build instructions](standalone/README.md).
 The FFmpeg upstream `latest` asset is mutable; if upstream replaces it, the pinned
 checksum intentionally fails. Use the verified original archive in `.cache`, or
 review a new build and update its URL/checksum before rebuilding.
@@ -72,9 +76,10 @@ isolated development and verification; normal users do not need these variables.
 
 ## Distribution
 
-The portable ZIP can be hosted as a direct download. It exceeds
-Workers Static Assets' 25 MiB limit, so use R2 with a download subdomain or another
-file host. Video downloads run on the user's computer.
+Publish `standalone/Vidl.exe` as a GitHub Release asset and use its direct download
+URL on your website. The EXE exceeds GitHub's regular Git file limit, so binaries
+are published through Releases while their build source is tracked in this repo.
+Video downloads run on the user's computer.
 Code signing and an automatic app updater are not included.
 
 ## Licenses

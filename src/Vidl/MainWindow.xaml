@@ -43,7 +43,7 @@
                 </StackPanel>
               </Border>
               <TextBlock Text="VIDL FOR WINDOWS" Foreground="#67735C" FontSize="9" FontWeight="SemiBold" Margin="2,0,0,5" />
-              <TextBlock Text="Version 0.1.0" Foreground="#89957E" FontSize="11" Margin="2,0,0,0" />
+              <TextBlock Text="Version 0.1.1" Foreground="#89957E" FontSize="11" Margin="2,0,0,0" />
             </StackPanel>
           </Grid>
         </Border>
@@ -148,7 +148,7 @@
               </StackPanel></Border>
               <Border Background="#1C2615" BorderBrush="#38472B" BorderThickness="1" CornerRadius="14" Padding="23"><StackPanel>
                 <TextBlock Text="Small app. Your own collection." FontSize="16" FontWeight="SemiBold" Foreground="#D5F77F" />
-                <TextBlock Text="Vidl 0.1.0 for Windows x64. No accounts, ads, or analytics. Links are sent to YouTube to fetch your downloads. Engine updates connect to GitHub. Settings and optional download history are stored locally." Foreground="#9EAF8D" FontSize="12" TextWrapping="Wrap" LineHeight="21" Margin="0,10,0,0" />
+                <TextBlock Text="Vidl 0.1.1 for Windows x64. No accounts, ads, or analytics. Links are sent to YouTube to fetch your downloads. Engine updates connect to GitHub. Settings and optional download history are stored locally." Foreground="#9EAF8D" FontSize="12" TextWrapping="Wrap" LineHeight="21" Margin="0,10,0,0" />
                 <TextBlock Text="Save content you own or have permission to download." Foreground="#7C906A" FontSize="11" Margin="0,14,0,0" />
                 <Button Content="Open app licenses" Style="{StaticResource QuietButton}" HorizontalAlignment="Left" Padding="0,12,0,0" FontSize="11" Click="Licenses_Click" />
               </StackPanel></Border>

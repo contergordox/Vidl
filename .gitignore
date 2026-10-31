@@ -29,3 +29,4 @@ TestResults/
 *.dll
 *.pdb
 *.log
+standalone/*.exe.sha256
