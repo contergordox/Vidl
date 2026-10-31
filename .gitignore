@@ -1,0 +1,31 @@
+**/bin/
+**/obj/
+.cache/
+dist/
+*.zip
+.vs/
+*.user
+
+# Local settings, credentials, and signing keys
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+*.snk
+secrets.json
+settings.json
+NuGet.Config
+nuget.config
+
+# Build output and local development data
+work/
+outputs/
+artifacts/
+TestResults/
+*.exe
+*.dll
+*.pdb
+*.log

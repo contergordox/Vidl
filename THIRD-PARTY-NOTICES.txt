@@ -1,0 +1,39 @@
+VIDL 0.1.0 — THIRD-PARTY SOFTWARE
+
+Vidl's own source is MIT licensed. The portable distribution includes separate,
+unmodified tools and the Microsoft .NET desktop runtime under their own licenses.
+The complete available upstream notices are in the licenses/ folder.
+
+yt-dlp 2026.10.26
+  Project and corresponding source:
+  https://github.com/yt-dlp/yt-dlp/tree/2026.10.26
+  Windows executable includes bundled dependencies with separate notices.
+  See licenses/yt-dlp-LICENSE.txt and licenses/yt-dlp-THIRD-PARTY.txt.
+  Distribution: https://github.com/yt-dlp/yt-dlp/releases/tag/2026.10.26
+
+FFmpeg N-128222-ga3c5339578-20261030, Windows x64 GPL shared build
+  FFmpeg and this build are distributed under GPL version 3 or later.
+  See licenses/FFmpeg-LICENSE.txt.
+  Exact FFmpeg source revision:
+  https://github.com/FFmpeg/FFmpeg/tree/a3c5339578
+  Source archive:
+  https://github.com/FFmpeg/FFmpeg/archive/a3c5339578.tar.gz
+  Build recipes and dependency source retrieval:
+  https://github.com/yt-dlp/FFmpeg-Builds
+  Build archive (unmodified separate executables and shared libraries):
+  https://github.com/yt-dlp/FFmpeg-Builds/releases/tag/latest
+  Archive SHA-256:
+  74997890a4c199545e15932f62ef29e58cbb0efef9e73c56b9ef5a3ae83b3cc9
+
+Node.js v24.20.0, Windows x64
+  MIT license and bundled third-party notices in licenses/Node-LICENSE.txt.
+  Source: https://github.com/nodejs/node/tree/v24.20.0
+  Distribution: https://nodejs.org/dist/v24.20.0/
+
+Microsoft .NET / WPF 10.0.13
+  MIT license; other bundled third-party components retain their own terms.
+  See licenses/dotnet-LICENSE.txt and licenses/dotnet-THIRD-PARTY.txt.
+  Runtime source: https://github.com/dotnet/runtime/tree/v10.0.13
+  WPF source: https://github.com/dotnet/wpf/tree/v10.0.13
+
+Licenses and source links must be retained when redistributing the bundle.

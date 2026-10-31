@@ -1,0 +1,164 @@
+<Window x:Class="Vidl.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+        Title="Vidl" Width="1120" Height="800" MinWidth="920" MinHeight="700" WindowStartupLocation="CenterScreen"
+        Background="{StaticResource CanvasBrush}" Foreground="{StaticResource TextBrush}" FontFamily="Segoe UI"
+        WindowStyle="None" ResizeMode="CanResize" AllowDrop="True" Drop="Window_Drop" Closing="Window_Closing">
+  <shell:WindowChrome.WindowChrome><shell:WindowChrome CaptionHeight="0" ResizeBorderThickness="6" CornerRadius="12" GlassFrameThickness="0" /></shell:WindowChrome.WindowChrome>
+  <Border BorderBrush="#343B30" BorderThickness="1">
+    <Grid>
+      <Grid.RowDefinitions><RowDefinition Height="38" /><RowDefinition Height="*" /><RowDefinition Height="30" /></Grid.RowDefinitions>
+      <Grid Background="#131611" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+        <TextBlock Text="VIDL  /  YOUR OFFLINE COLLECTION" Foreground="#737E69" FontSize="10" FontWeight="SemiBold" Margin="22,0,0,0" VerticalAlignment="Center" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+          <Button Content="—" Width="44" Padding="0" Style="{StaticResource QuietButton}" Click="Minimize_Click" AutomationProperties.Name="Minimize" />
+          <Button Content="□" Width="44" Padding="0" Style="{StaticResource QuietButton}" Click="Maximize_Click" AutomationProperties.Name="Maximize" />
+          <Button Content="×" Width="44" Padding="0" Style="{StaticResource QuietButton}" FontSize="20" Click="Close_Click" AutomationProperties.Name="Close" />
+        </StackPanel>
+      </Grid>
+      <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions><ColumnDefinition Width="202" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+        <Border BorderBrush="#292F25" BorderThickness="0,0,1,0" Background="#131611">
+          <Grid Margin="20,26,20,20">
+            <Grid.RowDefinitions><RowDefinition Height="76" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+              <Border Width="38" Height="38" Background="{StaticResource AccentBrush}" CornerRadius="11" Margin="0,0,10,0">
+                <Path Data="M 0,0 L 9,13 L 18,0 M 9,1 L 9,13" Stroke="#1A2510" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Width="18" Height="16" Stretch="Uniform" />
+              </Border>
+              <TextBlock Text="vidl" FontSize="29" FontWeight="Bold" Margin="0,-3,0,0" />
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+              <TextBlock Text="LIBRARY" FontSize="10" FontWeight="SemiBold" Foreground="#68745E" Margin="12,0,0,12" />
+              <Button x:Name="DownloadsNav" Click="DownloadsNav_Click" Background="#29331E" BorderThickness="0" Padding="14,12" HorizontalContentAlignment="Left">
+                <StackPanel Orientation="Horizontal"><TextBlock Text="↓" FontSize="18" Foreground="{StaticResource AccentBrush}" Margin="0,-3,12,0" /><TextBlock Text="Downloads" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}" /></StackPanel>
+              </Button>
+              <Button x:Name="PreferencesNav" Click="PreferencesNav_Click" Style="{StaticResource QuietButton}" Padding="14,12" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal"><TextBlock Text="⚙" FontSize="17" Foreground="{StaticResource MutedBrush}" Margin="0,-2,12,0" /><TextBlock Text="Preferences" Foreground="{StaticResource MutedBrush}" /></StackPanel>
+              </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+              <Border BorderBrush="#343F2A" BorderThickness="1" CornerRadius="10" Padding="13" Margin="0,0,0,18">
+                <StackPanel>
+                  <TextBlock Text="Made for your machine." FontSize="12" Foreground="#C2CCB6" FontWeight="SemiBold" />
+                  <TextBlock Text="Your files stay with you.&#10;No account needed." FontSize="11" Foreground="#7C8970" LineHeight="18" Margin="0,6,0,0" />
+                </StackPanel>
+              </Border>
+              <TextBlock Text="VIDL FOR WINDOWS" Foreground="#67735C" FontSize="9" FontWeight="SemiBold" Margin="2,0,0,5" />
+              <TextBlock Text="Version 0.1.0" Foreground="#89957E" FontSize="11" Margin="2,0,0,0" />
+            </StackPanel>
+          </Grid>
+        </Border>
+        <Grid Grid.Column="1" Margin="32,25,32,22">
+          <Grid x:Name="DownloadsPage">
+            <Grid.RowDefinitions><RowDefinition Height="98" /><RowDefinition Height="Auto" /><RowDefinition Height="58" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+            <Grid>
+              <StackPanel><TextBlock Text="Keep the good stuff." FontSize="31" FontWeight="SemiBold" /><TextBlock Text="Video and audio, saved to your computer." Foreground="{StaticResource MutedBrush}" FontSize="13" Margin="0,8,0,0" /></StackPanel>
+              <Border HorizontalAlignment="Right" VerticalAlignment="Top" Background="#202B19" BorderBrush="#3E512D" BorderThickness="1" CornerRadius="12" Padding="10,5" Margin="0,9,0,0">
+                <StackPanel Orientation="Horizontal"><Ellipse Fill="{StaticResource AccentBrush}" Width="5" Height="5" Margin="0,0,6,0" /><TextBlock Text="Runs locally" Foreground="#C9E4A3" FontSize="10" /></StackPanel>
+              </Border>
+            </Grid>
+            <Border Grid.Row="1" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="14" Padding="22">
+              <StackPanel>
+                <TextBlock Text="START WITH A LINK" Foreground="#ADB89E" FontSize="10" FontWeight="SemiBold" Margin="0,0,0,12" />
+                <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="12" /><ColumnDefinition Width="132" /></Grid.ColumnDefinitions>
+                  <Border x:Name="UrlBorder" Background="#10150E" BorderBrush="#414E35" BorderThickness="1" CornerRadius="9" Padding="13,0,5,0">
+                    <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                      <TextBlock x:Name="UrlHint" Text="Paste a YouTube link…" IsHitTestVisible="False" Foreground="#748167" FontSize="14" VerticalAlignment="Center" />
+                      <TextBox x:Name="UrlInput" TextChanged="UrlInput_TextChanged" KeyDown="UrlInput_KeyDown" AutomationProperties.Name="YouTube link" />
+                      <Button Grid.Column="1" Content="Paste" Style="{StaticResource QuietButton}" Padding="10,8" Margin="5" Click="Paste_Click" ToolTip="Paste a link from the clipboard" />
+                    </Grid>
+                  </Border>
+                  <Button x:Name="AddButton" Grid.Column="2" Content="Add to queue  ↗" Style="{StaticResource PrimaryButton}" Click="Add_Click" />
+                </Grid>
+                <TextBlock x:Name="InputMessage" Visibility="Collapsed" Foreground="#F4B195" FontSize="12" TextWrapping="Wrap" Margin="0,10,0,0" />
+                <Grid Margin="0,18,0,0"><Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="156" /></Grid.ColumnDefinitions>
+                  <StackPanel>
+                    <TextBlock Text="FORMAT" Foreground="#7C896E" FontSize="9" FontWeight="SemiBold" Margin="0,0,0,8" />
+                    <StackPanel Orientation="Horizontal">
+                      <Button x:Name="VideoButton" Content="MP4  Video" Padding="14,9" Background="#354529" BorderBrush="#718850" Foreground="{StaticResource AccentBrush}" Click="Video_Click" />
+                      <Button x:Name="Mp3Button" Content="MP3  Audio" Padding="14,9" Margin="7,0,0,0" Click="Mp3_Click" />
+                      <Button x:Name="M4aButton" Content="M4A" Padding="12,9" Margin="7,0,0,0" Click="M4a_Click" />
+                    </StackPanel>
+                  </StackPanel>
+                  <StackPanel Grid.Column="1" Margin="12,0,0,0">
+                    <TextBlock Text="QUALITY" Foreground="#7C896E" FontSize="9" FontWeight="SemiBold" Margin="0,0,0,8" />
+                    <ComboBox x:Name="QualityBox" SelectedIndex="1" SelectionChanged="Quality_Changed" AutomationProperties.Name="Video quality">
+                      <ComboBoxItem Content="Best available" Tag="0" /><ComboBoxItem Content="1080p" Tag="1080" /><ComboBoxItem Content="720p" Tag="720" /><ComboBoxItem Content="480p" Tag="480" /><ComboBoxItem Content="360p" Tag="360" />
+                    </ComboBox>
+                  </StackPanel>
+                </Grid>
+                <Border BorderBrush="#2D3427" BorderThickness="0,1,0,0" Margin="0,18,0,0" Padding="0,12,0,0">
+                  <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <TextBlock Text="↳  Save to" Foreground="#7F8E70" FontSize="11" VerticalAlignment="Center" Margin="0,0,9,0" />
+                    <TextBlock x:Name="FolderLabel" Grid.Column="1" TextTrimming="CharacterEllipsis" Foreground="#B7C2AA" FontSize="11" VerticalAlignment="Center" />
+                    <Button Grid.Column="2" Content="Change" Style="{StaticResource QuietButton}" Padding="8,2" FontSize="11" Click="ChooseFolder_Click" />
+                  </Grid>
+                </Border>
+              </StackPanel>
+            </Border>
+            <Grid Grid.Row="2"><StackPanel Orientation="Horizontal" VerticalAlignment="Center"><TextBlock Text="Your downloads" FontWeight="SemiBold" FontSize="15" /><Border Background="#2B3324" CornerRadius="7" Padding="7,2" Margin="9,0,0,0"><TextBlock x:Name="QueueCount" Text="0" Foreground="#ABBA98" FontSize="10" /></Border></StackPanel>
+              <Button x:Name="ClearButton" Content="Clear finished" Style="{StaticResource QuietButton}" HorizontalAlignment="Right" FontSize="11" Padding="10,7" Click="Clear_Click" ToolTip="Remove finished entries from this list. Saved files are kept." IsEnabled="False" />
+            </Grid>
+            <Border Grid.Row="3" x:Name="EmptyPanel" BorderBrush="#293323" BorderThickness="1" CornerRadius="14" Background="#141911">
+              <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="18">
+                <Grid Width="76" Height="68" Margin="0,0,0,18">
+                  <Border Width="48" Height="58" Background="#202B18" BorderBrush="#3A4D29" BorderThickness="1" CornerRadius="10" RenderTransformOrigin="0.5,0.5"><Border.RenderTransform><RotateTransform Angle="-12" /></Border.RenderTransform></Border>
+                  <Border Width="48" Height="58" Background="#2C3A20" BorderBrush="#638148" BorderThickness="1" CornerRadius="10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Path Data="M 10,0 L 10,21 M 2,13 L 10,21 L 18,13 M 0,30 L 20,30" Stroke="#D5F77F" StrokeThickness="2.3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Width="21" Height="31" Stretch="Uniform" />
+                  </Border>
+                </Grid>
+                <TextBlock Text="Your next good find goes here." FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center" />
+                <TextBlock Text="Paste a link above to save your first video or track." Foreground="#89977A" FontSize="12" HorizontalAlignment="Center" Margin="0,9,0,0" />
+                <TextBlock Text="YouTube videos, Shorts, and music links" Foreground="#647356" FontSize="10" HorizontalAlignment="Center" Margin="0,18,0,0" />
+              </StackPanel>
+            </Border>
+            <ScrollViewer Grid.Row="3" x:Name="QueueScroll" Visibility="Collapsed" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+              <ItemsControl x:Name="QueueList">
+                <ItemsControl.ItemTemplate><DataTemplate>
+                  <Border Background="#191F15" BorderBrush="#303B27" BorderThickness="1" CornerRadius="11" Padding="15" Margin="0,0,0,10">
+                    <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="94" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                      <Border Background="#2C3A20" Width="82" Height="60" CornerRadius="7" VerticalAlignment="Top" ClipToBounds="True">
+                        <Grid><TextBlock Text="↓" Foreground="#91AF65" FontSize="27" VerticalAlignment="Center" HorizontalAlignment="Center" /><Image Source="{Binding Thumbnail}" Stretch="UniformToFill" /></Grid>
+                      </Border>
+                      <StackPanel Grid.Column="1" Margin="0,0,12,0">
+                        <TextBlock Text="{Binding Title}" FontSize="13" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" ToolTip="{Binding Title}" />
+                        <TextBlock Text="{Binding Subtitle}" Foreground="#8F9E7F" FontSize="10" Margin="0,5,0,0" TextTrimming="CharacterEllipsis" />
+                        <ProgressBar Value="{Binding Percent}" Margin="0,11,0,0" Height="4" Visibility="{Binding ProgressVisibility}" />
+                        <TextBlock Text="{Binding Detail}" Foreground="{Binding StatusBrush}" FontSize="11" Margin="0,8,0,0" TextWrapping="Wrap" />
+                      </StackPanel>
+                      <Button Grid.Column="2" Content="{Binding ActionLabel}" Click="ItemAction_Click" Padding="11,7" FontSize="11" VerticalAlignment="Top" Tag="{Binding}" />
+                    </Grid>
+                  </Border>
+                </DataTemplate></ItemsControl.ItemTemplate>
+              </ItemsControl>
+            </ScrollViewer>
+          </Grid>
+          <Grid x:Name="PreferencesPage" Visibility="Collapsed">
+            <Grid.RowDefinitions><RowDefinition Height="98" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+            <StackPanel><TextBlock Text="Make yourself at home." FontSize="31" FontWeight="SemiBold" /><TextBlock Text="A few simple preferences. Everything stays on this computer." Foreground="{StaticResource MutedBrush}" FontSize="13" Margin="0,8,0,0" /></StackPanel>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto"><StackPanel>
+              <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="14" Padding="23" Margin="0,0,0,16"><StackPanel>
+                <TextBlock Text="Download folder" FontWeight="SemiBold" FontSize="16" /><TextBlock Text="New downloads will be saved here." Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,7,0,16" />
+                <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions><TextBlock x:Name="PreferencesFolderLabel" Foreground="#B3C2A3" FontSize="12" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Margin="0,0,14,0" /><Button Grid.Column="1" Content="Choose folder" Click="ChooseFolder_Click" /></Grid>
+                <CheckBox x:Name="RememberCheck" Content="Remember finished downloads in this app" Margin="0,24,0,0" Checked="Remember_Changed" Unchecked="Remember_Changed" />
+              </StackPanel></Border>
+              <Border Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="14" Padding="23" Margin="0,0,0,16"><StackPanel>
+                <TextBlock Text="Download engine" FontWeight="SemiBold" FontSize="16" /><TextBlock Text="YouTube changes often. Keep the download engine up to date." Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,7,0,16" />
+                <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions><TextBlock x:Name="EngineLabel" Text="yt-dlp · FFmpeg · Node.js" Foreground="#A8BB93" FontSize="12" VerticalAlignment="Center" /><Button x:Name="UpdateButton" Grid.Column="1" Content="Update engine" Click="UpdateEngine_Click" /></Grid>
+                <TextBlock x:Name="UpdateMessage" Foreground="#A8BB93" FontSize="12" TextWrapping="Wrap" Margin="0,12,0,0" />
+              </StackPanel></Border>
+              <Border Background="#1C2615" BorderBrush="#38472B" BorderThickness="1" CornerRadius="14" Padding="23"><StackPanel>
+                <TextBlock Text="Small app. Your own collection." FontSize="16" FontWeight="SemiBold" Foreground="#D5F77F" />
+                <TextBlock Text="Vidl 0.1.0 for Windows x64. No accounts, ads, or analytics. Links are sent to YouTube to fetch your downloads. Engine updates connect to GitHub. Settings and optional download history are stored locally." Foreground="#9EAF8D" FontSize="12" TextWrapping="Wrap" LineHeight="21" Margin="0,10,0,0" />
+                <TextBlock Text="Save content you own or have permission to download." Foreground="#7C906A" FontSize="11" Margin="0,14,0,0" />
+                <Button Content="Open app licenses" Style="{StaticResource QuietButton}" HorizontalAlignment="Left" Padding="0,12,0,0" FontSize="11" Click="Licenses_Click" />
+              </StackPanel></Border>
+            </StackPanel></ScrollViewer>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Border Grid.Row="2" BorderBrush="#293025" BorderThickness="0,1,0,0" Background="#131611" Padding="18,0">
+        <Grid><TextBlock x:Name="StatusLabel" Text="Ready when you are." FontSize="10" Foreground="#839176" VerticalAlignment="Center" /><TextBlock Text="YOUR LINKS. YOUR FILES. YOUR COMPUTER." Foreground="#58664D" FontSize="9" HorizontalAlignment="Right" VerticalAlignment="Center" /></Grid>
+      </Border>
+    </Grid>
+  </Border>
+</Window>
